@@ -1,0 +1,4 @@
+colors = ['Red', 'Green', 'Blue']
+states = ['A', 'B', 'C']
+solution = {state: colors[i % len(colors)] for i, state in enumerate(states)}
+print(solution)
