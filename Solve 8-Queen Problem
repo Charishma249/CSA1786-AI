@@ -1,0 +1,5 @@
+import itertools
+for perm in itertools.permutations(range(8)):
+    if all(abs(perm[i] - perm[j]) != j - i for i in range(8) for j in range(i)):
+        print(perm)
+        break
