@@ -1,0 +1,10 @@
+rules = {
+    "Flu": ["Fever"],
+    "Cold": ["Cough", "Sore Throat"]
+}
+
+def backward_chaining(disease):
+    return rules.get(disease, "No known causes")
+
+print(backward_chaining("Flu"))
+print(backward_chaining("Cold"))
