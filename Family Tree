@@ -1,0 +1,30 @@
+class Person:
+    def __init__(self, name, gender):
+        self.name = name
+        self.gender = gender
+        self.parents = []
+
+    def add_parents(self, parent1, parent2):
+        self.parents.extend([parent1, parent2])
+
+def define_relations():
+    pam = Person("Pam", "Female")
+    tom = Person("Tom", "Male")
+    bob = Person("Bob", "Male")
+    liz = Person("Liz", "Female")
+    ann = Person("Ann", "Female")
+    pat = Person("Pat", "Female")
+    jim = Person("Jim", "Male")
+
+    # Define family tree
+    bob.add_parents(pam, tom)
+    ann.add_parents(pam, tom)
+    pat.add_parents(liz, jim)
+
+    return [pam, tom, bob, liz, ann, pat, jim]
+
+# Retrieve relations
+family = define_relations()
+for person in family:
+    parent_names = [p.name for p in person.parents]
+    print(f"{person.name} has parents: {', '.join(parent_names) if parent_names else 'Unknown'}")
