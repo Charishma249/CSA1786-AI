@@ -1,1 +1,52 @@
-print("Basic A* requires a graph with heuristics. Not implemented in short form.")
+from queue import PriorityQueue
+
+class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_edge(self, node, neighbor, cost):
+        if node not in self.graph:
+            self.graph[node] = []
+        self.graph[node].append((neighbor, cost))
+
+    def a_star(self, start, goal, heuristic):
+        open_list = PriorityQueue()
+        open_list.put((0, start))
+        g_cost = {start: 0}
+        parent = {start: None}
+
+        while not open_list.empty():
+            _, current = open_list.get()
+
+            if current == goal:
+                path = []
+                while current:
+                    path.append(current)
+                    current = parent[current]
+                return path[::-1]  # Reverse path
+
+            for neighbor, cost in self.graph.get(current, []):
+                new_cost = g_cost[current] + cost
+                if neighbor not in g_cost or new_cost < g_cost[neighbor]:
+                    g_cost[neighbor] = new_cost
+                    f_cost = new_cost + heuristic[neighbor]
+                    open_list.put((f_cost, neighbor))
+                    parent[neighbor] = current
+        return None  # No path found
+
+# Define graph
+g = Graph()
+edges = [
+    ('A', 'B', 1), ('A', 'C', 4),
+    ('B', 'D', 2), ('C', 'D', 5),
+    ('D', 'E', 1)
+]
+for edge in edges:
+    g.add_edge(*edge)
+
+# Define heuristic (estimated cost to reach goal)
+heuristic = {'A': 6, 'B': 4, 'C': 4, 'D': 2, 'E': 0}
+
+# Find shortest path from A to E
+path = g.a_star('A', 'E', heuristic)
+print("Shortest Path:", path)
