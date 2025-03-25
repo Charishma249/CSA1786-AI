@@ -1,1 +1,19 @@
-print("Simple version: Solve (3,3) -> (0,0) with constraints")
+from collections import deque
+
+def is_valid(state):
+    m_left, c_left, boat, m_right, c_right = state
+    if (m_left < c_left and m_left > 0) or (m_right < c_right and m_right > 0):
+        return False  # Missionaries should never be outnumbered
+    return 0 <= m_left <= 3 and 0 <= c_left <= 3 and 0 <= m_right <= 3 and 0 <= c_right <= 3
+
+def get_next_states(state):
+    m_left, c_left, boat, m_right, c_right = state
+    moves = [(1, 0), (2, 0), (0, 1), (0, 2), (1, 1)]  # Possible boat moves
+    next_states = []
+
+    for m, c in moves:
+        if boat == 1:  # Boat on left side
+            new_state = (m_left - m, c_left - c, 0, m_right + m, c_right + c)
+        else:  # Boat on right side
+            new_state = (m_left + m, c_left + c, 1, m_right - m, c_right -_
+
