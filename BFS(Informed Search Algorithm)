@@ -1,0 +1,36 @@
+import heapq
+
+class Graph:
+    def __init__(self):
+        self.edges = {}
+
+    def add_edge(self, node, neighbor, cost):
+        if node not in self.edges:
+            self.edges[node] = []
+        self.edges[node].append((cost, neighbor))
+
+    def best_first_search(self, start, goal):
+        visited = set()
+        pq = [(0, start)]
+        
+        while pq:
+            cost, node = heapq.heappop(pq)
+            if node in visited:
+                continue
+            visited.add(node)
+            print(f"Visiting {node}")
+            if node == goal:
+                print("Goal reached!")
+                return
+            for edge_cost, neighbor in self.edges.get(node, []):
+                if neighbor not in visited:
+                    heapq.heappush(pq, (edge_cost, neighbor))
+
+# Define graph
+graph = Graph()
+graph.add_edge("A", "B", 1)
+graph.add_edge("A", "C", 3)
+graph.add_edge("B", "D", 2)
+graph.add_edge("C", "D", 4)
+
+graph.best_first_search("A", "D")
