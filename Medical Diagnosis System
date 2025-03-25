@@ -1,0 +1,13 @@
+symptom_disease = {
+    "Cough": "Cold",
+    "Fever": "Flu",
+    "Headache": "Migraine",
+    "Chest Pain": "Heart Disease"
+}
+
+def diagnose(symptom):
+    return symptom_disease.get(symptom, "No diagnosis available")
+
+# User input
+print(diagnose("Cough"))
+print(diagnose("Chest Pain"))
