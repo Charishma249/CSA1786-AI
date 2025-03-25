@@ -1,0 +1,7 @@
+from itertools import permutations
+def solve():
+    for p in permutations(range(10), 8):
+        if p[2] + p[3] == p[5]:  # Simple condition example
+            print("Solution:", p)
+            break
+solve()
