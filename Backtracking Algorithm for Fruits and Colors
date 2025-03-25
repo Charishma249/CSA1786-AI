@@ -1,0 +1,16 @@
+fruits = {
+    "Apple": "Red",
+    "Banana": "Yellow",
+    "Grapes": "Green",
+    "Blueberry": "Blue",
+}
+
+def find_fruit_by_color(color):
+    for fruit, fruit_color in fruits.items():
+        if fruit_color.lower() == color.lower():
+            return fruit
+    return "No fruit found."
+
+# User input
+print(find_fruit_by_color("Red"))
+print(find_fruit_by_color("Blue"))
