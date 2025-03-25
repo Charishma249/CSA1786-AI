@@ -1,0 +1,8 @@
+def monkey_banana():
+    actions = ["Monkey moves to banana", "Monkey climbs the chair", "Monkey grabs the banana"]
+    print("Initial state: Monkey is on the ground")
+    for action in actions:
+        print(f"Action: {action}")
+    print("Final state: Monkey eats the banana!")
+
+monkey_banana()
