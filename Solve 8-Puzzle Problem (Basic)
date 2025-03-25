@@ -1,0 +1,10 @@
+from collections import deque
+def bfs(start, goal):
+    q = deque([start])
+    while q:
+        state = q.popleft()
+        if state == goal:
+            return "Solved"
+        q.append(state[::-1])  # Just for demo
+    return "Not Found"
+print(bfs("12345678_", "12345678_"))
