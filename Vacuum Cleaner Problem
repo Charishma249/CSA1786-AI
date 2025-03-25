@@ -1,0 +1,5 @@
+rooms = [1, 0, 1, 1]
+for i in range(len(rooms)):
+    if rooms[i]:
+        rooms[i] = 0
+print("Rooms cleaned:", rooms)
