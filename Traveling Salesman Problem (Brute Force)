@@ -1,0 +1,5 @@
+from itertools import permutations
+cities = [0, 1, 2]
+distances = {(0, 1): 10, (1, 2): 15, (0, 2): 20}
+min_cost = min(sum(distances[(p[i], p[i+1])] for i in range(len(p)-1)) for p in permutations(cities))
+print("Min cost:", min_cost)
