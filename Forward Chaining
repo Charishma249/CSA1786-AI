@@ -1,0 +1,13 @@
+rules = {
+    "R1": {"If": ["Fever"], "Then": "Flu"},
+    "R2": {"If": ["Cough", "Sore Throat"], "Then": "Cold"}
+}
+
+def apply_forward_chaining(symptoms):
+    for rule in rules.values():
+        if all(symptom in symptoms for symptom in rule["If"]):
+            return rule["Then"]
+    return "No matching rule found."
+
+print(apply_forward_chaining(["Fever"]))
+print(apply_forward_chaining(["Cough", "Sore Throat"]))
