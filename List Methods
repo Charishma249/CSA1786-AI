@@ -1,6 +1,9 @@
-lst = [1, 2, 3]
-lst.append(4)
-lst.extend([5, 6])
-lst.insert(1, 10)
-lst.pop()
-print(lst)
+my_list = []
+my_list.append(1)  # Corrected from add to append
+print("List after adding an item using append method:", my_list)
+my_list.append(2)
+print("List after appending an item using append method:", my_list)
+my_list.extend([3, 4, 5])
+print("List after extending using extend method:", my_list)
+my_list.remove(3)
+print("List after removing an item using remove method:", my_list)
