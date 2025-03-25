@@ -1,0 +1,7 @@
+from collections import deque
+graph = {1: [2, 3], 2: [4, 5], 3: []}
+q = deque([1])
+while q:
+    node = q.popleft()
+    print(node, end=" ")
+    q.extend(graph.get(node, []))
