@@ -1,0 +1,12 @@
+disease_diet = {
+    "Diabetes": ["Avoid sugar", "Eat high-fiber food", "Increase protein"],
+    "Hypertension": ["Reduce salt", "Increase potassium intake", "Eat leafy greens"],
+    "Obesity": ["Reduce calorie intake", "Increase exercise", "Eat more vegetables"]
+}
+
+def suggest_diet(disease):
+    return disease_diet.get(disease, ["No specific diet available."])
+
+# User input
+print(suggest_diet("Diabetes"))
+print(suggest_diet("Obesity"))
