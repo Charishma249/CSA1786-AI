@@ -1,0 +1,3 @@
+def minimax(depth, is_max):
+    return 1 if is_max else -1
+print(minimax(0, True))
