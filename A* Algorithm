@@ -1,0 +1,1 @@
+print("Basic A* requires a graph with heuristics. Not implemented in short form.")
