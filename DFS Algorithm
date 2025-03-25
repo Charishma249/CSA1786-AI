@@ -1,0 +1,6 @@
+graph = {1: [2, 3], 2: [4, 5], 3: []}
+stack = [1]
+while stack:
+    node = stack.pop()
+    print(node, end=" ")
+    stack.extend(graph.get(node, []))
